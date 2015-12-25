@@ -1,4 +1,4 @@
-package server
+package appserver
 
 // 请求方法
 const (
