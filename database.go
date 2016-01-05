@@ -1,6 +1,8 @@
 package appserver
 
 import (
+	"database/sql"
+
 	"github.com/garyburd/redigo/redis"
 	"github.com/juju/errors"
 	"gopkg.in/doug-martin/goqu.v3"
@@ -9,6 +11,7 @@ import (
 // Database 数据库处理对象
 type Database interface {
 	From(cols ...interface{}) *goqu.Dataset
+	Query(query string, args ...interface{}) (*sql.Rows, error)
 }
 
 // Transaction 事务处理对象
