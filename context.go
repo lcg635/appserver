@@ -50,7 +50,7 @@ func (c *Context) ApplyEvent(e Event) {
 
 // Error 发送错误信息
 func (c *Context) Error(e error) {
-	logrus.Error(e)
+	// logrus.Error(e)
 	if err := c.JSON(H{"error": e.Error()}); err != nil {
 		logrus.Error(err)
 	}
