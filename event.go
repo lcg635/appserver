@@ -17,11 +17,11 @@ func NewEventBus(useQueue bool) *EventBus {
 }
 
 // AddHandler 添加事件处理程序
-func (eb *EventBus) AddHandler(eventName string, handler EventHandler) {
+func (eb *EventBus) AddHandler(eventName string, handlers ...EventHandler) {
 	if _, ok := eb.handlers[eventName]; !ok {
 		eb.handlers[eventName] = []EventHandler{}
 	}
-	eb.handlers[eventName] = append(eb.handlers[eventName], handler)
+	eb.handlers[eventName] = append(eb.handlers[eventName], handlers...)
 }
 
 // ApplyEvent 触发某个事件
