@@ -10,4 +10,5 @@ var (
 	ErrInvalidAuthorizationHeader = errors.New("Invalid Authorization header")
 	ErrInvalidTokenEncoding       = errors.New("Token encoding not valid")
 	ErrInternalServer             = errors.New("Internal Server Error")
+	ErrIPLimited                  = errors.New("Remote IP Limited")
 )
