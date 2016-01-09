@@ -5,6 +5,9 @@ import (
 	"net/http"
 	"time"
 
+	"encoding/json"
+
+	"github.com/Sirupsen/logrus"
 	"github.com/garyburd/redigo/redis"
 	"gopkg.in/doug-martin/goqu.v3"
 	"gopkg.in/tylerb/graceful.v1"
@@ -12,6 +15,14 @@ import (
 
 // H 哈希
 type H map[string]interface{}
+
+func (h H) String() string {
+	buf, err := json.Marshal(h)
+	if err != nil {
+		logrus.Error("encode H error:", err.Error())
+	}
+	return string(buf)
+}
 
 // Server 服务器
 type Server struct {
